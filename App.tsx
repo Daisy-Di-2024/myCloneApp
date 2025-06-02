@@ -1,9 +1,17 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet, Alert, TouchableOpacity } from 'react-native';
+import React from "react";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Alert,
+  TouchableOpacity,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function App() {
   const handlePress = () => {
-    Alert.alert('Assignment 1 Completed');
+    Alert.alert("Assignment 1 Completed");
   };
 
   return (
@@ -20,7 +28,9 @@ export default function App() {
         <View style={styles.userInfo}>
           <Image
             style={styles.photo}
-            source={{ uri: 'https://i.pinimg.com/736x/2a/fe/e1/2afee127c87029f5440654d4c3652bf4.jpg' }}
+            source={{
+              uri: "https://i.pinimg.com/736x/2a/fe/e1/2afee127c87029f5440654d4c3652bf4.jpg",
+            }}
           />
           <Text style={styles.username}>ootd_everyday</Text>
         </View>
@@ -28,8 +38,22 @@ export default function App() {
         {/* Image */}
         <Image
           style={styles.mainImage}
-          source={{ uri: 'https://i.pinimg.com/736x/2a/fe/e1/2afee127c87029f5440654d4c3652bf4.jpg' }}
+          source={{
+            uri: "https://i.pinimg.com/736x/2a/fe/e1/2afee127c87029f5440654d4c3652bf4.jpg",
+          }}
         />
+
+        <View style={styles.actionRow}>
+          <TouchableOpacity style={styles.iconButton}>
+            <Ionicons name="heart-outline" size={28} />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.iconButton}>
+            <Ionicons name="chatbubble-outline" size={28} />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.iconButton}>
+            <Ionicons name="paper-plane-outline" size={28} />
+          </TouchableOpacity>
+        </View>
 
         {/* Likes & Description */}
         <Text style={styles.likes}>Liked by paisley.print.48 and 7 others</Text>
@@ -50,32 +74,32 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   topBar: {
     paddingTop: 40,
     paddingBottom: 10,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    borderBottomColor: '#ddd',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    borderBottomColor: "#ddd",
     borderBottomWidth: 1,
   },
   time: {
-    position: 'absolute',
+    position: "absolute",
     left: 10,
     top: 40,
     fontSize: 16,
   },
   title: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 16,
   },
   post: {
     padding: 10,
   },
   userInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 10,
   },
   photo: {
@@ -85,34 +109,42 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   username: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 16,
   },
   mainImage: {
-    width: '100%',
+    width: "100%",
     height: 350,
-    backgroundColor: '#eee',
+    backgroundColor: "#eee",
     borderRadius: 10,
+  },
+  actionRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 10,
+  },
+  iconButton: {
+    marginRight: 15,
   },
   likes: {
     marginTop: 10,
-    fontWeight: '500',
+    fontWeight: "500",
   },
   caption: {
     marginTop: 5,
   },
   bold: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   button: {
     marginTop: 15,
-    backgroundColor: '#f04242',
+    backgroundColor: "#f04242",
     padding: 10,
-    alignItems: 'center',
+    alignItems: "center",
     borderRadius: 6,
   },
   buttonText: {
-    color: '#fff',
-    fontWeight: '600',
+    color: "#fff",
+    fontWeight: "600",
   },
 });
