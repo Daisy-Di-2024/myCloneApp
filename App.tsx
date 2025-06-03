@@ -38,7 +38,11 @@ export default function App() {
                 uri: "https://i.pinimg.com/736x/2a/fe/e1/2afee127c87029f5440654d4c3652bf4.jpg",
               }}
             />
-            <Text style={styles.username}>ootd_everyday</Text>
+            <Text>
+              <Text style={styles.username}>ootd_everyday</Text>
+              {"\n"}
+              <Text style={styles.subtitle}>via frenchie_fry39</Text>
+            </Text>
           </View>
           <TouchableOpacity style={styles.moreButton}>
             <Ionicons name="ellipsis-horizontal" size={20} color="#000" />
