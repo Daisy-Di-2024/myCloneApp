@@ -69,6 +69,16 @@ export default function App() {
           Fresh shot on a sunny day! ☀️
         </Text>
 
+        <Text style={styles.viewComments}>View all 12 comments</Text>
+        <Text style={styles.commentText}>
+          <Text style={styles.bold}>lil_wyatt838 </Text>
+          Awesome tones
+        </Text>
+        <Text style={styles.commentText}>
+          <Text style={styles.bold}>pia.in.a.pod </Text>
+          Gorg. Love it! ❤️
+        </Text>
+
         {/* Clickable UI */}
         <TouchableOpacity onPress={handlePress} style={styles.button}>
           <Text style={styles.buttonText}>Click Me</Text>
@@ -151,6 +161,15 @@ const styles = StyleSheet.create({
   },
   bold: {
     fontWeight: "bold",
+  },
+  viewComments: {
+    marginTop: 5,
+    color: "#999",
+    fontSize: 14,
+  },
+  commentText: {
+    marginTop: 3,
+    fontSize: 14,
   },
   button: {
     marginTop: 15,
