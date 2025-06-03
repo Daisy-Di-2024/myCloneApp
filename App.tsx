@@ -44,14 +44,21 @@ export default function App() {
         />
 
         <View style={styles.actionRow}>
-          <TouchableOpacity style={styles.iconButton}>
-            <Ionicons name="heart-outline" size={28} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.iconButton}>
-            <Ionicons name="chatbubble-outline" size={28} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.iconButton}>
-            <Ionicons name="paper-plane-outline" size={28} />
+          {/* heart, chatbubble, paper-plane button left */}
+          <View style={styles.actionRow}>
+            <TouchableOpacity style={styles.iconButton}>
+              <Ionicons name="heart-outline" size={28} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.iconButton}>
+              <Ionicons name="chatbubble-outline" size={28} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.iconButton}>
+              <Ionicons name="paper-plane-outline" size={28} />
+            </TouchableOpacity>
+          </View>
+          {/* bookmark button left */}
+          <TouchableOpacity style={styles.bookmarkButton}>
+            <Ionicons name="bookmark-outline" size={28} />
           </TouchableOpacity>
         </View>
 
@@ -122,9 +129,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginTop: 10,
+    justifyContent: "space-between",
   },
   iconButton: {
     marginRight: 15,
+  },
+  leftIcons: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  bookmarkButton: {
+    paddingHorizontal: 5,
+    paddingVertical: 2,
   },
   likes: {
     marginTop: 10,
