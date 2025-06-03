@@ -19,8 +19,12 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       {/* Top Bar */}
       <View style={styles.topBar}>
-        <Text style={styles.time}>5:26</Text>
-        <Text style={styles.title}>OOTD_EVERYDAY</Text>
+        {/* <Text style={styles.time}>5:26</Text> */}
+        <TouchableOpacity style={styles.backButton}>
+          <Ionicons name="chevron-back" size={36} color="#000" />
+        </TouchableOpacity>
+        <Text style={styles.subtitle}>OOTD_EVERYDAY</Text>
+        <Text style={styles.title}>POSTS</Text>
       </View>
 
       {/* Post */}
@@ -116,10 +120,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   topBar: {
-    paddingTop: 40,
-    paddingBottom: 10,
+    height: 100,
     backgroundColor: "#fff",
     alignItems: "center",
+    justifyContent: "flex-end",
+    paddingBottom: 8,
     borderBottomColor: "#ddd",
     borderBottomWidth: 1,
   },
@@ -128,6 +133,16 @@ const styles = StyleSheet.create({
     left: 10,
     top: 40,
     fontSize: 16,
+    color: "#000",
+  },
+  backButton: {
+    position: "absolute",
+    left: 15,
+    padding: 4,
+  },
+  subtitle: {
+    fontSize: 12,
+    color: "#7c7878",
   },
   title: {
     fontWeight: "bold",
