@@ -1,4 +1,7 @@
 import React from "react";
+import { useState } from 'react';
+
+
 import {
   View,
   Text,
@@ -11,114 +14,143 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 
 export default function App() {
+  const [liked, setLiked] = useState(false);
   const handlePress = () => {
     Alert.alert("Assignment 1 Completed");
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={style2.container}>
       {/* Top Bar */}
-      <View style={styles.topBar}>
+      <View style={style2.topBar}>
         {/* <Text style={styles.time}>5:26</Text> */}
-        <TouchableOpacity style={styles.backButton}>
+        <TouchableOpacity style={style2.backButton}>
           <Ionicons name="chevron-back" size={36} color="#000" />
         </TouchableOpacity>
-        <Text style={styles.subtitle}>OOTD_EVERYDAY</Text>
-        <Text style={styles.title}>POSTS</Text>
+        <Text style={style2.subtitle}>OOTD_EVERYDAY</Text>
+        <Text style={style2.title}>POSTS</Text>
       </View>
 
       {/* Post */}
-      <View style={styles.post}>
+      <View style={style2.post}>
         {/* User Info */}
-        <View style={styles.postHeader}>
-          <View style={styles.avatarNameRow}>
+        <View style={style2.postHeader}>
+          <View style={style2.avatarNameRow}>
             <Image
-              style={styles.photo}
+              style={style2.photo}
               source={{
                 uri: "https://i.pinimg.com/736x/2a/fe/e1/2afee127c87029f5440654d4c3652bf4.jpg",
               }}
             />
             <Text>
-              <Text style={styles.username}>ootd_everyday</Text>
+              <Text style={style2.username}>ootd_everyday</Text>
               {"\n"}
-              <Text style={styles.subtitle}>via frenchie_fry39</Text>
+              <Text style={style2.subtitle}>via frenchie_fry39</Text>
             </Text>
           </View>
-          <TouchableOpacity style={styles.moreButton}>
+          <TouchableOpacity style={style2.moreButton}>
             <Ionicons name="ellipsis-horizontal" size={20} color="#000" />
           </TouchableOpacity>
         </View>
         {/* Image */}
         <Image
-          style={styles.mainImage}
+          style={style2.mainImage}
           source={{
             uri: "https://i.pinimg.com/736x/2a/fe/e1/2afee127c87029f5440654d4c3652bf4.jpg",
           }}
         />
 
-        <View style={styles.actionRow}>
+        <View style={style2.actionRow}>
           {/* heart, chatbubble, paper-plane button left */}
-          <View style={styles.actionRow}>
-            <TouchableOpacity style={styles.iconButton}>
-              <Ionicons name="heart-outline" size={28} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.iconButton}>
+          <View style={style2.actionRow}>
+            <TouchableOpacity style={style2.iconButton} onPress={() => setLiked(!liked)}>
+  <Ionicons
+    name={liked ? "heart" : "heart-outline"}
+    size={28}
+    color={liked ? "red" : "black"}
+  />
+</TouchableOpacity>
+
+            <TouchableOpacity style={style2.iconButton}>
               <Ionicons name="chatbubble-outline" size={28} />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.iconButton}>
+            <TouchableOpacity style={style2.iconButton}>
               <Ionicons name="paper-plane-outline" size={28} />
             </TouchableOpacity>
           </View>
           {/* bookmark button left */}
-          <TouchableOpacity style={styles.bookmarkButton}>
+          <TouchableOpacity style={style2.bookmarkButton}>
             <Ionicons name="bookmark-outline" size={28} />
           </TouchableOpacity>
         </View>
 
         {/* Likes & Description */}
-        <Text style={styles.likes}>Liked by paisley.print.48 and 7 others</Text>
-        <Text style={styles.caption}>
-          <Text style={styles.bold}>frenchie_fry39 </Text>
+        <Text style={style2.likes}>Liked by paisley.print.48 and 7 others</Text>
+        <Text style={style2.caption}>
+          <Text style={style2.bold}>frenchie_fry39 </Text>
           Fresh shot on a sunny day! ☀️
         </Text>
 
-        <Text style={styles.viewComments}>View all 12 comments</Text>
-        <Text style={styles.commentText}>
-          <Text style={styles.bold}>lil_wyatt838 </Text>
+        <Text style={style2.viewComments}>View all 12 comments</Text>
+        <Text style={style2.commentText}>
+          <Text style={style2.bold}>lil_wyatt838 </Text>
           Awesome tones
         </Text>
-        <Text style={styles.commentText}>
-          <Text style={styles.bold}>pia.in.a.pod </Text>
+        <Text style={style2.commentText}>
+          <Text style={style2.bold}>pia.in.a.pod </Text>
           Gorg. Love it! ❤️
+        </Text>
+        <Text style={style2.commentText}>
+          <Text style={style2.bold}>s.samarbeer </Text>
+          faboulous! 😍
         </Text>
 
         {/* Clickable UI */}
-        <TouchableOpacity onPress={handlePress} style={styles.button}>
-          <Text style={styles.buttonText}>Click Me</Text>
+        <TouchableOpacity onPress={handlePress} style={style2.button}>
+          <Text style={style2.buttonText}>Click Me</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.bottomNav}>
-        <TouchableOpacity style={styles.navButton}>
+      <View style={style2.bottomNav}>
+        <TouchableOpacity style={style2.navButton}>
           <Ionicons name="home-outline" size={28} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navButton}>
+        <TouchableOpacity style={style2.navButton}>
           <Ionicons name="search-outline" size={28} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navButton}>
+        <TouchableOpacity style={style2.navButton}>
           <Ionicons name="videocam-outline" size={28} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navButton}>
+        <TouchableOpacity style={style2.navButton}>
           <Ionicons name="bag-outline" size={28} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navButton}>
+        <TouchableOpacity style={style2.navButton}>
           <Ionicons name="person-outline" size={28} />
         </TouchableOpacity>
       </View>
+      <TouchableOpacity onPress={() => setLiked(!liked)}>
+</TouchableOpacity>
+
     </SafeAreaView>
+    
   );
 }
 
-const styles = StyleSheet.create({
+
+const style1 = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  heart: {
+    fontSize: 40,
+    color: 'gray',
+  },
+  liked: {
+    color: 'red',
+  },
+});
+const style2 = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
@@ -258,4 +290,5 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
   },
+
 });
