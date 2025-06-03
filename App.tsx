@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Alert,
   TouchableOpacity,
+  SafeAreaView,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -15,7 +16,7 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* Top Bar */}
       <View style={styles.topBar}>
         <Text style={styles.time}>5:26</Text>
@@ -25,16 +26,20 @@ export default function App() {
       {/* Post */}
       <View style={styles.post}>
         {/* User Info */}
-        <View style={styles.userInfo}>
-          <Image
-            style={styles.photo}
-            source={{
-              uri: "https://i.pinimg.com/736x/2a/fe/e1/2afee127c87029f5440654d4c3652bf4.jpg",
-            }}
-          />
-          <Text style={styles.username}>ootd_everyday</Text>
+        <View style={styles.postHeader}>
+          <View style={styles.avatarNameRow}>
+            <Image
+              style={styles.photo}
+              source={{
+                uri: "https://i.pinimg.com/736x/2a/fe/e1/2afee127c87029f5440654d4c3652bf4.jpg",
+              }}
+            />
+            <Text style={styles.username}>ootd_everyday</Text>
+          </View>
+          <TouchableOpacity style={styles.moreButton}>
+            <Ionicons name="ellipsis-horizontal" size={20} color="#000" />
+          </TouchableOpacity>
         </View>
-
         {/* Image */}
         <Image
           style={styles.mainImage}
@@ -84,7 +89,24 @@ export default function App() {
           <Text style={styles.buttonText}>Click Me</Text>
         </TouchableOpacity>
       </View>
-    </View>
+      <View style={styles.bottomNav}>
+        <TouchableOpacity style={styles.navButton}>
+          <Ionicons name="home-outline" size={28} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <Ionicons name="search-outline" size={28} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <Ionicons name="videocam-outline" size={28} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <Ionicons name="bag-outline" size={28} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <Ionicons name="person-outline" size={28} />
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -112,7 +134,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   post: {
+    flex: 1,
     padding: 10,
+  },
+  postHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 10,
+  },
+  avatarNameRow: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   userInfo: {
     flexDirection: "row",
@@ -125,9 +158,20 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginRight: 10,
   },
+  nameContainer: {
+    flexDirection: "column",
+  },
   username: {
     fontWeight: "bold",
     fontSize: 16,
+  },
+  viaText: {
+    fontSize: 12,
+    color: "#666",
+  },
+  moreButton: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
   mainImage: {
     width: "100%",
@@ -181,5 +225,18 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#fff",
     fontWeight: "600",
+  },
+  bottomNav: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    paddingVertical: 10,
+    borderTopColor: "#ddd",
+    borderTopWidth: 1,
+    backgroundColor: "#fff",
+  },
+  navButton: {
+    flex: 1,
+    alignItems: "center",
   },
 });
